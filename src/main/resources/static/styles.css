@@ -2,3 +2,19 @@ body{
 font-size: 18px;
 color: purple
 }
+th {
+  background-color: blue;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+table.center{
+margin-left:auto;
+margin-right:auto;
+}
+img{
+max-height:70px;
+max-width:70px;
+}

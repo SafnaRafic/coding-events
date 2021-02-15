@@ -5,10 +5,41 @@
 <h1> All Events</h1>
 <nav th:replace="fragments :: navigation"></nav>
 <p th:unless="${events} and ${events.size()}">No events!</p>
-    <ul>
-        <th:block th:each="event: ${events}">
-            <li th:text="${event.name}"></li>
-        </th:block>
-    </ul>
+<table class="center">
+    <tr>
+        <th>Event name</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Picture</th>
+    </tr>
+    <th:block th:each="event : ${events}">
+        <tr>
+            <td th:text="${event.key}"></td>
+            <td th:text="${event.value}"></td>
+            <th:block th:if='${event.key.equals("Menteaship")}'>
+                <td th:replace="fragments :: Menteaship"></td>
+                <td ><img th:src="@{/images/menteaship.jpg}"></td>
+            </th:block>
+            <th:block th:if='${event.key.equals("Code With Pride")}'>
+                <td th:replace="fragments :: Code"></td>
+                <td ><img th:src="@{/images/code.jpeg}"></td>
+            </th:block>
+            <th:block th:if='${event.key.equals("Javascripty")}'>
+                <td th:replace="fragments :: Javascript"></td>
+                <td ><img th:src="@{/images/javascript.jpg}"></td>
+            </th:block>
+
+        </tr>
+    </th:block>
+</table>
+
+</body>
+</html>
+
+<!--    <ul>-->
+<!--        <th:block th:each="event: ${events}">-->
+<!--            <li th:text="${event.name}"></li>-->
+<!--        </th:block>-->
+<!--    </ul>-->
 </body>
 </html>
